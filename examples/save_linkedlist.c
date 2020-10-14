@@ -17,7 +17,6 @@ void node_backup(backup_context_t *bc, void *ws_loc) {
     printf("Backing up node with value %d\n", node->value);
     register_pointer_ref(bc, &(tmp->next), tmp->next);
 
-    // Comment out when using cell pool, use for malloc fallback
     checkpoint_custom(bc, tmp->next, sizeof(node_t), node_backup);
   }
 }
